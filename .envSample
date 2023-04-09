@@ -1,0 +1,12 @@
+ENV=dev
+
+POSTGRES_HOST=127.0.0.1
+POSTGRES_DB_DEV=storefront_dev
+POSTGRES_DB_TEST=storefront_test
+POSTGRES_USER=chuongle
+POSTGRES_PASSWORD=3334
+
+BCRYPT_PASSWORD=watashi-tora-papa
+SALT_ROUNDS=10
+
+JWT_SECRET=in-fact-no-secret
