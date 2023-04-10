@@ -33,6 +33,8 @@ const create = async (req: Request, res: Response) => {
     const price = req.body.price;
     // a simple validation
     if (!name || !price) throw new Error(`invalid input (${name}, ${price})`);
+    if (isNaN(price) || parseInt(price) <= 0) throw new Error(`invalid price`);
+    
     const product = await store.create({ name, price });
 
     res.json(product);
@@ -45,7 +47,7 @@ const create = async (req: Request, res: Response) => {
 const sampleRoutes = (app: expres.Application) => {
   app.get('/products', index);
   app.get('/products/:id', show);
-  app.post('/producs', verifyAuthToken, create);
+  app.post('/products', verifyAuthToken, create);
 };
 
 export default sampleRoutes;

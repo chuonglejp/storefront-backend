@@ -39,7 +39,6 @@ const create = async (req: Request, res: Response) => {
     const first_name = req.body.first_name;
     const last_name = req.body.last_name;
     const password = req.body.password;
-    console.log('user body', req.body)
     // a simple validation
     if (!username || !password) throw new Error(`invalid input`);
     const existingUser = await store.getByUsername(username);
@@ -48,7 +47,7 @@ const create = async (req: Request, res: Response) => {
     const user = await store.create({ username, first_name, last_name, password });
     // const token = jwt.sign({ username }, JWT_SECRET as string);
 
-    res.status(200).json({user});
+    res.status(200).json(user);
   } catch (error) {
     console.error(`create user(${req.body.username}, ${req.body.password}) error. ${error}`);
     res.status(200).json(error);
@@ -62,12 +61,12 @@ const authenticate = async (req: Request, res: Response) => {
     // a simple validation
     if (!username || !password) throw new Error(`invalid input`);
 
-    const user = await store.authenticate(username, password);
-    if (user) {
+    const auth = await store.authenticate(username, password);
+    if (auth) {
       const token = jwt.sign({ username }, JWT_SECRET as string);
       res.status(200).json({token});
     } else {
-    res.status(200).json({user});
+    res.status(200).json({auth});
     }
 
   } catch (error) {

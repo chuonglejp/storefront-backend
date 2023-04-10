@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import productRoutes from './handlers/product';
 import userRoutes from './handlers/user';
+import orderRoutes from './handlers/order';
 
 const app: express.Application = express();
 const address: string = '0.0.0.0:3000';
@@ -22,7 +23,11 @@ app.get('/', (req: Request, res: Response) => {
 productRoutes(app);
 // user routes
 userRoutes(app);
+// order routes
+orderRoutes(app);
 
 app.listen(3000, function () {
   console.log('listening app on', address);
 });
+
+export default app;

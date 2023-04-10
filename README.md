@@ -1,6 +1,10 @@
 # Storefront Backend Project
 
 ## Installation
+#### Docker
+- docker-compose up -d
+
+#### Start server
 - Rename .envsample to .env, update information inside .env exept BCRYPT_PASSWORD
 - npm i
 - db-migrate up
@@ -22,5 +26,5 @@
 - POST  ```/products```             [token required] add a new product
 
 #### Order
-- GET   ```/orders```               [token required] get the current order
+- POST  ```/orders```               [token required] get the current order
 - POST  ```/orders/add-to-cart```   [token required] add a product with quantity to current order

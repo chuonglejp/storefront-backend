@@ -10,8 +10,7 @@
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint": "eslint 'src/**/*.ts'",
     "jasmine": "jasmine",
-    "jasmine-ts": "echo \"Run test\" && npm run build && npm run jasmine",
-    "test": "ENV=test && npm run build && db-migrate --env test up && npm run jasmine && db-migrate db:drop test"
+    "test": "set ENV=test && npx tsc && db-migrate --env test up && jasmine"
   },
   "author": "Chuong Le",
   "license": "ISC",
@@ -19,6 +18,7 @@
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "db-migrate": "^0.11.13",
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^16.0.3",
