@@ -7,6 +7,7 @@ const {
   POSTGRES_DB_TEST, 
   POSTGRES_USER, 
   POSTGRES_PASSWORD, 
+  POSTGRES_PORT,
   ENV 
 } =  process.env;
 
@@ -20,6 +21,7 @@ if (ENV === 'test') {
     database: POSTGRES_DB_TEST,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
+    port: parseInt(POSTGRES_PORT || '5432'),
   });
 } else {
   client = new Pool({
@@ -27,6 +29,7 @@ if (ENV === 'test') {
     database: POSTGRES_DB_DEV,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
+    port: parseInt(POSTGRES_PORT || '5432'),
   });
 }
 
