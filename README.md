@@ -18,7 +18,7 @@ Below is the sample of the config of the database in the .env file.
 #### Database schema
 ![database schema](./assets/schema.jpg)
 
-#### Start server
+## Start server
 - Rename .envsample to .env, update information inside .env exept BCRYPT_PASSWORD
 - npm i
 - db-migrate up
