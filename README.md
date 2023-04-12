@@ -15,6 +15,9 @@ Below is the sample of the config of the database in the .env file.
 - POSTGRES_PASSWORD=3334
 - POSTGRES_PORT=5432
 
+#### Database schema
+![database schema](./assets/schema.jpg)
+
 #### Start server
 - Rename .envsample to .env, update information inside .env exept BCRYPT_PASSWORD
 - npm i
